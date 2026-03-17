@@ -4,8 +4,16 @@ import { useRef } from "react";
 import { useHeroAnimation } from "@/hooks/use-hero-animation";
 import { Button } from "@/src/components/ui/button";
 import { ShieldCheck, Album, Heart, Link as LinkIcon, Lock } from "lucide-react";
+import { useRouter } from "next/navigation";
 
 export function HeroSection() {
+
+  const router = useRouter();
+
+  const handleRedirect = () => {
+    router.push("/sign-in");
+  }
+
   const containerRef = useRef<HTMLDivElement>(null);
   useHeroAnimation(containerRef);
 
@@ -64,7 +72,7 @@ export function HeroSection() {
         </div>
 
         <h1 className="text-6xl sm:text-7xl md:text-8xl font-black tracking-tighter text-foreground drop-shadow-sm flex flex-wrap justify-center gap-x-4">
-          <span className="hero-title-word">Connectments</span>
+          <span className="hero-title-word">Connection</span>
           <span className="hero-title-word">that</span>
           <span className="hero-title-word">feel</span>
           <span className="hero-title-word text-[#16f943] relative">
@@ -77,7 +85,7 @@ export function HeroSection() {
         </p>
 
         <div className="hero-cta relative group">
-          <Button size="lg" className="rounded-full px-8 py-6 text-lg font-bold bg-[#1f2937] hover:bg-black text-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all hover:scale-105 hover:-translate-y-1 overflow-hidden">
+          <Button onClick={handleRedirect}  size="lg" className="rounded-full px-8 py-6 text-lg font-bold bg-[#1f2937] hover:bg-black text-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all hover:scale-105 hover:-translate-y-1 overflow-hidden" >
             <span className="relative z-10">Get started</span>
             <div className="absolute right-0 top-0 bottom-0 w-12 bg-[#f97316] rounded-r-full group-hover:w-full transition-all duration-300 ease-out z-0 flex items-center justify-end pr-3">
               <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>

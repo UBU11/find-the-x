@@ -1,9 +1,11 @@
 "use client";
 
 import Link from "next/link";
-import { UserButton, SignOutButton } from "@clerk/nextjs";
+import { useClerk } from '@clerk/nextjs'
+import { SignOutButton } from "@clerk/nextjs";
 
 export function Navbar() {
+  const {signOut} = useClerk()
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-6 py-4 bg-background/60 backdrop-blur-xl border-b border-black/5">
       <div className="flex items-center gap-2">
@@ -28,18 +30,9 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4 pl-6 border-l border-black/10">
-          <SignOutButton redirectUrl="/auth/sign-in">
-            <button className="text-sm font-bold text-[#1a2e05]/60 hover:text-[#f97316] transition-all cursor-pointer">
-              Sign out
-            </button>
-          </SignOutButton>
-          <UserButton
-            appearance={{
-              elements: {
-                avatarBox: "w-10 h-10 border-2 border-[#f97316]/20 hover:border-[#f97316] transition-all hover:scale-105 shadow-sm"
-              }
-            }}
-          />
+        <SignOutButton>
+          <button onClick={() => signOut({redirectUrl:"/"})}>Sign out</button>
+        </SignOutButton>
         </div>
       </div>
     </nav>

@@ -1,6 +1,7 @@
 "use client";
 
 import { useRef } from "react";
+import Link from "next/link";
 import { useHeroAnimation } from "@/hooks/use-hero-animation";
 import { Button } from "@/src/components/ui/button";
 import { ShieldCheck, CreditCard, Zap, Link as LinkIcon, Lock } from "lucide-react";
@@ -79,12 +80,14 @@ export function HeroSection() {
         </p>
 
         <div className="hero-cta relative group">
-          <Button size="lg" className="rounded-full px-8 py-6 text-lg font-bold bg-[#1f2937] hover:bg-black text-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all hover:scale-105 hover:-translate-y-1 overflow-hidden">
-            <span className="relative z-10">Get started</span>
-            <div className="absolute right-0 top-0 bottom-0 w-12 bg-[#f97316] rounded-r-full group-hover:w-full transition-all duration-300 ease-out z-0 flex items-center justify-end pr-3">
-              <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>
-            </div>
-          </Button>
+          <Link href="/sign-in">
+            <Button size="lg" className="rounded-full px-8 py-6 text-lg font-bold bg-[#1f2937] hover:bg-black text-white shadow-[0_8px_30px_rgb(0,0,0,0.12)] transition-all hover:scale-105 hover:-translate-y-1 overflow-hidden">
+              <span className="relative z-10">Get started</span>
+              <div className="absolute right-0 top-0 bottom-0 w-12 bg-[#f97316] rounded-r-full group-hover:w-full transition-all duration-300 ease-out z-0 flex items-center justify-end pr-3">
+                <svg className="w-5 h-5 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={3} d="M9 5l7 7-7 7" /></svg>
+              </div>
+            </Button>
+          </Link>
         </div>
       </div>
     </section>
