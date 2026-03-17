@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, SignOutButton } from "@clerk/nextjs";
 
 export function Navbar() {
   return (
@@ -28,6 +28,11 @@ export function Navbar() {
         </div>
 
         <div className="flex items-center gap-4 pl-6 border-l border-black/10">
+          <SignOutButton redirectUrl="/auth/sign-in">
+            <button className="text-sm font-bold text-[#1a2e05]/60 hover:text-[#f97316] transition-all cursor-pointer">
+              Sign out
+            </button>
+          </SignOutButton>
           <UserButton
             appearance={{
               elements: {
